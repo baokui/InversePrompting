@@ -897,7 +897,8 @@ class ChineseSPTokenizer(Tokenizer):
         self.text_tokenizer = sp_tokenizer.from_pretrained()
 
         self.num_command_tokens = 2
-        self.num_text_tokens = self.text_tokenizer.sp.vocab_size()
+        # self.num_text_tokens = self.text_tokenizer.sp.vocab_size()
+        self.num_text_tokens = kwargs['vocab_size']
         self.num_tokens = self.num_text_tokens + 1
         self.num_type_tokens = 2
 

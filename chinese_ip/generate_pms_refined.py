@@ -42,6 +42,7 @@ from utils import print_rank_0
 from pretrain_gpt2 import get_model
 from pypinyin import pinyin,FINALS, FINALS_TONE,TONE3
 import jsonlines
+path_model_checkpoint = '/search/odin/guobk/data/model/mp_rank_00_model_states.pt'
 def setup_model(args):
     """Setup model and optimizer."""
 
@@ -61,7 +62,8 @@ def setup_model(args):
         if args.deepspeed:
             iteration, release, success = get_checkpoint_iteration(args)
             print(iteration)
-            path = os.path.join(args.load, str(iteration), "mp_rank_00_model_states.pt")
+            # path = os.path.join(args.load, str(iteration), "mp_rank_00_model_states.pt")
+            path = path_model_checkpoint
             checkpoint = torch.load(path)
             model.load_state_dict(checkpoint["module"])
         else:

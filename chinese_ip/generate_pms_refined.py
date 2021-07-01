@@ -45,7 +45,8 @@ import jsonlines
 path_model_checkpoint = '/search/odin/guobk/data/model/mp_rank_00_model_states.pt'
 def setup_model(args):
     """Setup model and optimizer."""
-
+    print('args.vocab_size:',args.vocab_size)
+    args.vocab_size = 50048
     model = get_model(args)
 
     # if args.deepspeed:

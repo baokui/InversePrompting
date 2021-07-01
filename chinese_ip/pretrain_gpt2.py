@@ -59,6 +59,7 @@ def get_model(args):
     """Build the model."""
 
     print_rank_0('building GPT2 model ...')
+    print('args.vocab_size:',args.vocab_size)
     model = GPT2Model(num_layers=args.num_layers,
                       vocab_size=args.vocab_size,
                       hidden_size=args.hidden_size,

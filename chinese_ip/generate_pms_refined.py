@@ -959,5 +959,5 @@ def random_generate(mode=0):
         del output_scores
         
     return 0
-
-generate()
+if __name__=='__main__':
+    generate()
